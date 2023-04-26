@@ -1,6 +1,10 @@
 const express = require('express')
 const PORT = 8000
 const app = express()
+const cors = require('cors')
+
+app.use(cors())
+
 
 const rappers = {
     '21 savage':{
@@ -25,16 +29,16 @@ app.get('/', (request, response)=>{
 })
 
 app.get('/api/:rapperName', (request, response) => {
-    const rappersName = request.params.rapperName.toLowerCase
+    const rappersName = request.params.rapperName.toLowerCase()
     if (rappers[rappersName]){
         response.json(rappers[rappersName])
     }else{
         response.json(rappers['dylan'])
     }
-
-    response.json(rappers)
 })
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`The Server is running on ${PORT}! You better go catch it!`)
 })
+
+//git push -u origin main
