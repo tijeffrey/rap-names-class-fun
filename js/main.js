@@ -13,3 +13,5 @@ async function apiRequest(){
     }
 }
 
+console.log(rappers)
+
